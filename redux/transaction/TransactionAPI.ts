@@ -1,4 +1,5 @@
 import axiosInstance from "../axios";
+import { ITransactionsType } from "./TransactionType";
 
 export const getTransactions = async () => {
   const response = await axiosInstance.get("/transactions");
@@ -6,13 +7,13 @@ export const getTransactions = async () => {
   return response.data;
 };
 
-export const addTransactions = async (data: any) => {
+export const addTransactions = async (data: ITransactionsType) => {
   const response = await axiosInstance.post("/transactions", data);
 
   return response.data;
 };
 
-export const editTransactions = async (data: any, id: number) => {
+export const editTransactions = async (data: ITransactionsType, id: number) => {
   const response = await axiosInstance.put(`/transactions/${id}`, data);
 
   return response.data;
