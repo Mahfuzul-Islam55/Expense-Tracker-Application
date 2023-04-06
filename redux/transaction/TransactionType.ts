@@ -6,7 +6,7 @@ export interface IInitialState {
 }
 
 export interface ITransactionsType {
-  id: number;
+  id?: number;
   name: string;
   type: string;
   amount: number;
