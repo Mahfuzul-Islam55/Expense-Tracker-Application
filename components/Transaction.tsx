@@ -1,11 +1,15 @@
+import { ITransactionsType } from "@/redux/transaction/TransactionType";
 import React from "react";
 
-const Transaction = () => {
+interface props {
+  transaction: ITransactionsType;
+}
+const Transaction = ({ transaction }: props) => {
   return (
-    <li className="transaction income">
-      <p>Earned this month</p>
+    <li className={`transaction ${transaction.type}`}>
+      <p>{transaction.name}</p>
       <div className="right">
-        <p>৳ 100</p>
+        <p>৳ {transaction.amount}</p>
         <button className="link">
           <img className="icon" src="/edit.svg" />
         </button>

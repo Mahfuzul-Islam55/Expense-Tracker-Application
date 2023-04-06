@@ -10,10 +10,18 @@ const Form = () => {
 
   const dispatch = useAppDispatch();
   const { isLoading, isError } = useAppSelector((state) => state.transaction);
+
+  const reset = () => {
+    setName("");
+    setAmount("");
+    setType("");
+  };
   const handleSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
     let amount: number = Number(amountNumber);
     dispatch(createTransaction({ name, type, amount }));
+
+    reset();
   };
   return (
     <div className="form">
@@ -23,7 +31,8 @@ const Form = () => {
           <label htmlFor="transaction_name">Name</label>
           <input
             type="text"
-            name="transaction_name"
+            name="name"
+            value={name}
             placeholder="My Salary"
             onChange={(e) => setName(e.currentTarget.value)}
             required
@@ -36,7 +45,7 @@ const Form = () => {
             <input
               type="radio"
               value="income"
-              name="transaction_type"
+              name="type"
               checked={type === "income"}
               onChange={(e) => setType("income")}
               required
@@ -47,7 +56,7 @@ const Form = () => {
             <input
               type="radio"
               value="expense"
-              name="transaction_type"
+              name="type"
               placeholder="Expense"
               checked={type === "expense"}
               onChange={(e) => setType("expense")}
@@ -61,7 +70,8 @@ const Form = () => {
           <input
             type="string"
             placeholder="300"
-            name="transaction_amount"
+            name="amountNumber"
+            value={amountNumber}
             onChange={(e) => setAmount(e.currentTarget.value)}
             required
           />
