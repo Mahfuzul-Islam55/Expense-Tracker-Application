@@ -162,13 +162,12 @@ label {
   background-color: #e6425e !important;
 }
 
-.cancel_edit {
-  display: none;
+.cancel_edit_button {
   margin-top: 10px;
   background-color: #e6425e !important;
 }
 
-.cancel_edit:hover {
+.cancel_edit_button {
   background-color: #9e1028 !important;
 }
 

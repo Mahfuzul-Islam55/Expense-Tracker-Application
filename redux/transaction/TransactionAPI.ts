@@ -13,7 +13,10 @@ export const addTransactions = async (data: ITransactionsType) => {
   return response.data;
 };
 
-export const editTransactions = async (data: ITransactionsType, id: number) => {
+export const editTransactions = async (
+  data?: ITransactionsType,
+  id?: number
+) => {
   const response = await axiosInstance.put(`/transactions/${id}`, data);
 
   return response.data;
